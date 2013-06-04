@@ -1,0 +1,52 @@
+<%- model_class = Qrcode -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:ref) %></th>
+      <th><%= model_class.human_attribute_name(:question) %></th>
+      <th><%= model_class.human_attribute_name(:SAnswer) %></th>
+      <th><%= model_class.human_attribute_name(:Answer2) %></th>
+      <th><%= model_class.human_attribute_name(:Answer3) %></th>
+      <th><%= model_class.human_attribute_name(:Answer4) %></th>
+      <th><%= model_class.human_attribute_name(:Long) %></th>
+      <th><%= model_class.human_attribute_name(:lat) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @qrcodes.each do |qrcode| %>
+      <tr>
+        <td><%= link_to qrcode.id, qrcode_path(qrcode) %></td>
+        <td><%= qrcode.name %></td>
+        <td><%= qrcode.ref %></td>
+        <td><%= qrcode.question %></td>
+        <td><%= qrcode.SAnswer %></td>
+        <td><%= qrcode.Answer2 %></td>
+        <td><%= qrcode.Answer3 %></td>
+        <td><%= qrcode.Answer4 %></td>
+        <td><%= qrcode.Long %></td>
+        <td><%= qrcode.lat %></td>
+        <td><%=l qrcode.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_qrcode_path(qrcode), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      qrcode_path(qrcode),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_qrcode_path,
+            :class => 'btn btn-primary' %>

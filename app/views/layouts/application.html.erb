@@ -22,7 +22,7 @@
         <%= link_to "Nature Quest", '#', id: "logo" %>
         <div class="nav-collapse">
           <ul class="nav">
-            <li><%= link_to "Home" %></li>
+            <li><%= link_to "Home", :controller => :home, :action => :index %></li>
             <li><%= link_to "Development Blog", "http://www.naturequest.tumblr.com" %></li>
             <li><%= link_to "Sign in" %></li>
           </ul>
@@ -31,13 +31,21 @@
     </div>
   </div>
 
+
   <div class="container">
     <div class="row">
-      <div class="span9"><%= yield %></div>
-      <div class="span3">
-        <h2>About Nature Quest</h2>
-        We have been assigned a group project to create a mobile application with the theme being “Conservation in the City”, and we will be aiming it at the Design for Conservation competition that will go live soon. As a group, we have an idea that encourages kids to be more aware of conservation, so our idea is to create a treasure hunt around a recreation site. This webpage allows admins to generate QR codes and geotag their location for users to find and answer the questions. 
+      <div class="span9"><%= yield %></div> 
+      <div class="span3"> 
+        <h2> About Us <h2>
+          <p>
+            Something random about us....
+          </p>
+
+
+
+
       </div>
+     
     </div>
   </div>
 </body>

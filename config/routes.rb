@@ -1,7 +1,14 @@
 Nature::Application.routes.draw do
+
+  match 'qrcodes/find' => 'qrcodes#find'
+  resources :qrcodes
+
+
   devise_for :users
   resources :dashboard
   root to: "home#index"
+  match "/ads/:id" => "ads#show"
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

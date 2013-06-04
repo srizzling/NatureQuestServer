@@ -83,6 +83,13 @@ p {
   line-height: 1.7em;
 }
 
+a:visited{
+  text-decoration: none;
+}
+  
+
+
+
 /* header */
 
 
@@ -118,3 +125,9 @@ p {
     text-decoration: none;
   }
 }
+
+@media print {
+  .visible-print  { display: inherit !important; }
+  .hidden-print   { display: none !important; }
+}
+

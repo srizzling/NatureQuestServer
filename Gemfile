@@ -29,3 +29,5 @@ group :production do
 end
 
 gem 'devise'
+gem 'rqrcode-rails3'
+gem 'mini_magick'
