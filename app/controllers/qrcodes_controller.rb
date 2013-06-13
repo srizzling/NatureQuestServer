@@ -44,6 +44,7 @@ class QrcodesController < ApplicationController
   # POST /qrcodes.json
   def create
     @qrcode = Qrcode.new(params[:qrcode])
+    @qrcode.userid = current_user.id
 
     respond_to do |format|
       if @qrcode.save

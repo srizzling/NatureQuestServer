@@ -2,6 +2,7 @@ class DashboardController < ApplicationController
 
 	before_filter :authenticate_user!
  
-def index    
+def index 
+@qrcodes = Qrcode.all  
 end
 end

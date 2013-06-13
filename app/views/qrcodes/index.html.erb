@@ -16,6 +16,7 @@
       <th><%= model_class.human_attribute_name(:Long) %></th>
       <th><%= model_class.human_attribute_name(:lat) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%= model_class.human_attribute_name(:userid) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -33,6 +34,7 @@
         <td><%= qrcode.Long %></td>
         <td><%= qrcode.lat %></td>
         <td><%=l qrcode.created_at %></td>
+        <td><%= qrcode.userid %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_qrcode_path(qrcode), :class => 'btn btn-mini' %>

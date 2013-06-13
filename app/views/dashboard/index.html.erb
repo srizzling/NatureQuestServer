@@ -1,11 +1,38 @@
-<div class="center hero-unit">
+
   <h1>Welcome to your Admin Dashboard</h1>
 
-  <p>
-  	In this dashboard you can generate QR codes! More Information Soon!
-  <p>
+  <h3> List of Quests Created: </h3>
 
-  <%= link_to "Generate QR Code", '#', class: "btn btn-large btn-primary" %>
-</div>
+  <h3> List of All Users </h3>
 
-<%= link_to image_tag("rails.png", alt: "Rails"), 'http://rubyonrails.org/' %>
+ <table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @qrcodes.each do |qr| %>
+  <tr>
+    <td><%= qr.name %></td>
+    <td><%= link_to 'Show', qr %></td>
+    <td><%= link_to 'Edit', edit_qrcode_path(qr) %></td>
+    <td><%= link_to 'Destroy', qr, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+
+  <h3> List of Generated QR codes </h3>
+
+
+
+  <h3>Actions: </h3>
+
+  <%= link_to "Create New Quest", '#', class: "btn btn-large btn-primary" %>
+  <%= link_to "Create New QR Code", '#', class: "btn btn-large btn-primary" %>
+
+
+
+

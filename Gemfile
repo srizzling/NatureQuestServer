@@ -28,6 +28,7 @@ group :production do
   gem 'pg', '0.12.2'
 end
 
+gem 'annotate', ">=2.5.0"
 gem 'devise'
 gem 'rqrcode-rails3'
 gem 'mini_magick'

@@ -1,5 +1,8 @@
 Nature::Application.routes.draw do
 
+  resources :tests
+
+
   match 'qrcodes/find' => 'qrcodes#find'
   resources :qrcodes
 

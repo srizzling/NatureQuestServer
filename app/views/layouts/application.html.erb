@@ -22,10 +22,18 @@
         <%= link_to "Nature Quest", '#', id: "logo" %>
         <div class="nav-collapse">
           <ul class="nav">
-            <li><%= link_to "Home", :controller => :home, :action => :index %></li>
+            <li><%= link_to "Home", root_path %></li>
             <li><%= link_to "Development Blog", "http://www.naturequest.tumblr.com" %></li>
-            <li><%= link_to "Sign in" %></li>
+            <% if user_signed_in? %>
+            
+            <li> <%= link_to('Logout', destroy_user_session_path, :method => :delete) %> </li>
+          
+          <% else %>
+            <li> <%= link_to('Login', new_user_session_path)  %> <li>
+
+          <% end %>
           </ul>
+
         </div>
       </div>
     </div>
@@ -40,6 +48,15 @@
           <p>
             Something random about us....
           </p>
+
+          <% if user_signed_in? %>
+            <div><%=current_user.email %></div>
+            <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+          
+          <% else %>
+            <%= link_to('Login', new_user_session_path)  %>
+
+          <% end %>
 
 
 
