@@ -1,0 +1,29 @@
+<style>
+.break { page-break-before: always; }
+</style>
+
+<center>
+<%= link_to_function("Print All", "javascript:print()", class: "btn btn-primary") %>
+</center>
+
+<% @qrcodes.each do |qrcode| %>
+<div class="qrcode">
+<div class="page-header">
+  <h1 class="break">You have found a QRCode!</h1>
+</div>
+
+<center>
+<%= image_tag qrcode.imgloc %>
+
+<div class="reference">
+<strong> <p> Ref: #<%= qrcode.ref %> </p> </strong>
+</div>
+
+<div class="user-find">
+<p> Oh! You found me! Scan me to answer me! </p>
+</div>
+</div>
+
+</center>
+
+<% end %>

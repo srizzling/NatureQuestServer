@@ -1,21 +1,32 @@
 class QrcodesController < ApplicationController
+
+  before_filter :authenticate_user!
   # GET /qrcodes
   # GET /qrcodes.json
   def index
-    @qrcodes = Qrcode.all
-
+    #@qrcodes = Qrcode.find_all_by_userid(current_user.id)
+    @qrcodes= Qrcode.all
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @qrcodes }
     end
   end
 
+   def all
+    #@qrcodes = Qrcode.find_all_by_userid(current_user.id)
+    @qrcodes= Qrcode.all
+    
+  end
+
   # GET /qrcodes/1
   # GET /qrcodes/1.json
   def show
     @qrcode = Qrcode.find(params[:id])
-    @qrcode.imgloc = request.protocol+request.host_with_port+request.fullpath+".png"
-    @qrcode.save
+
+    if @qrcode.imgloc == nil
+      @qrcode.imgloc = request.protocol+request.host_with_port+request.fullpath+".png"
+      @qrcode.save
+    end
 
     respond_to do |format|
       format.html # show.html.erb
@@ -28,7 +39,7 @@ class QrcodesController < ApplicationController
   # GET /qrcodes/new.json
   def new
     @qrcode = Qrcode.new
-
+    @quests= Quest.all
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @qrcode }
@@ -38,6 +49,13 @@ class QrcodesController < ApplicationController
   # GET /qrcodes/1/edit
   def edit
     @qrcode = Qrcode.find(params[:id])
+    @auth=true
+    @quests= Quest.all
+    if @qrcode.userid == current_user.id
+      @auth=true
+    else
+      @auth=false
+    end
   end
 
   # POST /qrcodes
@@ -91,6 +109,27 @@ class QrcodesController < ApplicationController
     respond_to do |format|
       format.html 
       format.json { render json: @qrcode }
+    end
+  end
+
+  def geotag
+    @qrcode = Qrcode.find_by_ref(params[:r])
+    if @qrcode
+      @qrcode.Long = params[:long]
+      @qrcode.lat = params[:lat]
+      if @qrcode.save
+        respond_to do |format|
+          format.json { render json: {:success => 'true'} }
+        end
+      else
+        respond_to do |format|
+          format.json { render json: {:success => 'false', :reason => 'Type Mismatch'} }
+        end
+      end
+    else
+      respond_to do |format|
+        format.json { render json: {:success => 'false', :reason => 'QR code does not exist'} }
+      end
     end
   end
 end

@@ -1,3 +1,4 @@
+
 <%= form_for @qrcode, :html => { :class => 'form-horizontal' } do |f| %>
   <div class="control-group">
     <%= f.label :name, :class => 'control-label' %>
@@ -47,10 +48,17 @@
       <%= f.text_field :lat, :class => 'text_field' %>
     </div>
   </div>
+    <div class="control-group">
+    <%= f.label :quest_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.collection_select(:quest_id, Quest.find_all_by_userid(current_user.id), :id, :name) %>
+    </div>
+  </div>
 
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                 qrcodes_path, :class => 'btn' %>
   </div>
+
 <% end %>

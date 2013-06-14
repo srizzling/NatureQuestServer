@@ -18,8 +18,10 @@
 #
 
 class Qrcode < ActiveRecord::Base
-  attr_accessible :Answer2, :Answer3, :Answer4, :Long, :SAnswer, :ref, :lat, :name, :question
 
+  attr_accessible :Answer2, :Answer3, :Answer4, :Long, :SAnswer, :ref, :lat, :name, :question, :quest_id
+  
+  
 
    before_create :random_hash
 

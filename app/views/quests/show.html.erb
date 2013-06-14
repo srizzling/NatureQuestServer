@@ -1,21 +1,39 @@
-<%- model_class = Qrcode -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
-</div>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @quest.name %>
+</p>
+
+<p>
+  <b>Userid:</b>
+  <%= @quest.userid %>
+</p>
+
+<p>
+  <b>Cat:</b>
+  <%= @quest.cat %>
+</p>
+
+<p>
+  <b>ID</b>
+  <%= @quest.id %>
+</p>
+
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:name) %></th>
-      <th><%= model_class.human_attribute_name(:ref) %></th>
-      <th><%= model_class.human_attribute_name(:question) %></th>
-      <th><%= model_class.human_attribute_name(:SAnswer) %></th>
-      <th><%= model_class.human_attribute_name(:Answer2) %></th>
-      <th><%= model_class.human_attribute_name(:Answer3) %></th>
-      <th><%= model_class.human_attribute_name(:Answer4) %></th>
-      <th><%= model_class.human_attribute_name(:Long) %></th>
-      <th><%= model_class.human_attribute_name(:lat) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th> ID </th>
+      <th>Name</th>
+      <th>Ref</th>
+      <th>Question</th>
+      <th>Selected Answer</th>
+      <th>Answer 2</th>
+      <th>Answer 3</th>
+      <th>Answer 4</th>
+      <th>Longitude</th>
+      <th>Latitude</th>
+      <th>Created At</th>
       <th>Created By</th>  
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
 
@@ -34,7 +52,6 @@
         <td><%= qrcode.Answer4 %></td>
         <td><%= qrcode.Long %></td>
         <td><%= qrcode.lat %></td>
-         <td><%= qrcode.quest_id %></td>
         <td><%=l qrcode.created_at %></td>
         <td><%= User.find(qrcode.userid).email %></td>
         <td>
@@ -56,9 +73,8 @@
   </tbody>
 </table>
 
-<%= link_to t('.new', :default => t("helpers.links.new")),
-            new_qrcode_path,
-            :class => 'btn btn-primary' %>
 
 
-<%= link_to "Show All QR Codes", all_path, class: "btn btn-primary" %>
+<%= link_to "Generate New QR Code", new_qrcode_path, class: "btn btn-primary" %> 
+<%= link_to 'Edit', edit_quest_path(@quest) %> |
+<%= link_to 'Back', quests_path %>

@@ -1,9 +1,14 @@
 Nature::Application.routes.draw do
 
+  resources :quests
+
+
   resources :tests
 
 
-  match 'qrcodes/find' => 'qrcodes#find'
+  match 'find' => 'qrcodes#find'
+  match 'geotag' => 'qrcodes#geotag'
+  match 'all' => 'qrcodes#all'
   resources :qrcodes
 
 

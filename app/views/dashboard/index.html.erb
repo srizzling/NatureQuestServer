@@ -5,7 +5,12 @@
 
   <h3> List of All Users </h3>
 
- <table>
+
+
+
+  <h3> List of Generated QR codes </h3>
+
+   <table>
   <tr>
     <th>Name</th>
     <th></th>
@@ -14,17 +19,16 @@
   </tr>
 
 <% @qrcodes.each do |qr| %>
+<% if qr.userid == current_user.id %>
   <tr>
     <td><%= qr.name %></td>
     <td><%= link_to 'Show', qr %></td>
     <td><%= link_to 'Edit', edit_qrcode_path(qr) %></td>
     <td><%= link_to 'Destroy', qr, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
+  <% end %>
 <% end %>
 </table>
-
-
-  <h3> List of Generated QR codes </h3>
 
 
 
