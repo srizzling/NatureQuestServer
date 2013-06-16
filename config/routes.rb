@@ -6,16 +6,20 @@ Nature::Application.routes.draw do
   resources :tests
 
 
-  match 'find' => 'qrcodes#find'
-  match 'geotag' => 'qrcodes#geotag'
-  match 'all' => 'qrcodes#all'
-  resources :qrcodes
+  resources :api do
+    get 'all', :on => :collection
+    get 'find', :on => :collection
+    post 'login', :on => :collection
+    delete 'logout', :on => :collection
+    post  'geotag', :on => :collection
+  end
+
+   resources :qrcodes
 
 
-  devise_for :users
-  resources :dashboard
-  root to: "home#index"
-  match "/ads/:id" => "ads#show"
+   devise_for :users
+   resources :dashboard
+   root to: "home#index"
 
 
   # The priority is based upon order of creation:
