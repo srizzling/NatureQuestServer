@@ -100,17 +100,17 @@
 <!-- end #header -->
 </div>
          <div id="menu">
-            <ul>
-               <li><%= link_to "Home", root_path %></li>
-               <li><%= link_to "Development Blog", "http://www.naturequest.tumblr.com" %></li>
+            <table>
+               <td><%= link_to "Home", root_path %></td>
+               <td><%= link_to "Development Blog", "http://www.naturequest.tumblr.com" %></td>
                <% if user_signed_in? %>
-               <li> <%= link_to('Logout', destroy_user_session_path, :method => :delete) %> </li>
+               <td> <%= link_to('Logout', destroy_user_session_path, :method => :delete) %> </td>
                <% else %>
-               <li> <%= link_to('Login', new_user_session_path)  %></li>
+               <td> <%= link_to('Login', new_user_session_path)  %></td>
                   <% end %>
-		        <li><%= link_to "About", "#" %></li>
-				<li><%= link_to "Contact Us", "#" %></li>
-            </ul>
+		        <td><%= link_to "About", "#" %></td>
+				<td><%= link_to "Contact Us", "#" %></td>
+            </table>
             <!-- end #menu-->
          </div>
 		  <div id="mainContent">
