@@ -15,6 +15,7 @@
       <th><%= model_class.human_attribute_name(:Answer4) %></th>
       <th><%= model_class.human_attribute_name(:Long) %></th>
       <th><%= model_class.human_attribute_name(:lat) %></th>
+      <th><%= model_class.human_attribute_name(:quest_id) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th>Created By</th>  
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
@@ -34,7 +35,6 @@
         <td><%= qrcode.Answer4 %></td>
         <td><%= qrcode.Long %></td>
         <td><%= qrcode.lat %></td>
-         <td><%= qrcode.quest_id %></td>
         <td><%=l qrcode.created_at %></td>
         <td><%= User.find(qrcode.userid).email %></td>
         <td>
@@ -61,4 +61,4 @@
             :class => 'btn btn-primary' %>
 
 
-<%= link_to "Show All QR Codes", all_path, class: "btn btn-primary" %>
+

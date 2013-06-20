@@ -12,11 +12,7 @@ class QrcodesController < ApplicationController
     end
   end
 
-   def all
-    #@qrcodes = Qrcode.find_all_by_userid(current_user.id)
-    @qrcodes= Qrcode.all
-    
-  end
+  
 
   # GET /qrcodes/1
   # GET /qrcodes/1.json
@@ -104,32 +100,4 @@ class QrcodesController < ApplicationController
   end
 
 
-  def find
-    @qrcode = Qrcode.find_by_ref(params[:r]);
-    respond_to do |format|
-      format.html 
-      format.json { render json: @qrcode }
-    end
-  end
-
-  def geotag
-    @qrcode = Qrcode.find_by_ref(params[:r])
-    if @qrcode
-      @qrcode.Long = params[:long]
-      @qrcode.lat = params[:lat]
-      if @qrcode.save
-        respond_to do |format|
-          format.json { render json: {:success => 'true'} }
-        end
-      else
-        respond_to do |format|
-          format.json { render json: {:success => 'false', :reason => 'Type Mismatch'} }
-        end
-      end
-    else
-      respond_to do |format|
-        format.json { render json: {:success => 'false', :reason => 'QR code does not exist'} }
-      end
-    end
-  end
 end
