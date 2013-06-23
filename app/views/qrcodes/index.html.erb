@@ -2,7 +2,7 @@
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
 </div>
-<table class="table table-striped">
+<table class="table table-striped" border="1">
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
@@ -35,14 +35,17 @@
         <td><%= qrcode.Answer4 %></td>
         <td><%= qrcode.Long %></td>
         <td><%= qrcode.lat %></td>
+		<td><%= qrcode.quest_id %></td>
         <td><%=l qrcode.created_at %></td>
         <td><%= User.find(qrcode.userid).email %></td>
         <td>
           <% if qrcode.userid == current_user.id %>
            <%= link_to t('Show QR Code', :default => t("helpers.links.show")),
                       qrcode_path(qrcode), :class => 'btn btn-mini' %>
+					  <br />
             <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_qrcode_path(qrcode), :class => 'btn btn-mini' %>
+					  <br />
             <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
                       qrcode_path(qrcode),
                       :method => :delete,

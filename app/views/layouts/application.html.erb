@@ -1,147 +1,130 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-   <head>
-      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-      <title>Nature Quest</title>
-      <style type="text/css">
-         <!-- 
-            body  {
-            	font: 100% Verdana, Arial, Helvetica, sans-serif;
-            	margin: 0;				
-		      	background: #666666;
-				margin-top: 10px;
-            	padding: 0;
-            	text-align: center; 
-            }
-            .twoColLiqRtHdr #container { 
-            	width: 80%;  
-            	background: #FFFFFF;
-            	margin: 0 auto; 
-            	border: 1px solid #000000;
-            	text-align: left; 
-            } 
-            .twoColLiqRtHdr #header { 
-            	background: #DDDDDD; 
-            	padding: 0 10px;  
-            } 
-            .twoColLiqRtHdr #header h1 {
-            	margin: 0; 
-            	padding: 10px 0; 
-            }
-			.twoColLiqRtHdr #menu {
-				background-color:#06C;
-			}
-            .twoColLiqRtHdr #menu ul {
-				list-style-type:none;
-				margin:0;
-				padding:0;
-				overflow:hidden;
-			}
-			.twoColLiqRtHdr #menu li {
-				float:left;
-				padding: 0 10px 0 10px;
-			}
-			.twoColLiqRtHdr #menu a {
-				display:block;
-				background-color:#dddddd;
-			}
-            .twoColLiqRtHdr #sidebar1 {
-            	float: right; 
-            	width: 24%; 
-            	background: #EBEBEB; 
-            	padding-top: 15px 0; 
-            }
-            .twoColLiqRtHdr #sidebar1 h3, .twoColLiqRtHdr #sidebar1 p {
-            	margin-left: 10px; 
-            	margin-right: 10px;
-            }
-            .twoColLiqRtHdr #mainContent { 
-			width: 75%
-			word-wrap: break-word;
-			float: left;
-            	margin: 0 0 0 10px; 
-            } 
-            
-            .twoColLiqRtHdr #footer { 
-            	padding: 0 10px; 
-            	background:#DDDDDD; 
-            } 
-            .twoColLiqRtHdr #footer p {
-            	margin: 0; 
-            	padding: 10px 0; 
-            }
-            
-            /* Miscellaneous classes for reuse */
-            .fltrt { 
-            	float: right;
-            	margin-left: 8px;
-            }
-            .fltlft {
-            	float: left;
-            	margin-right: 8px;
-            }
-            .clearfloat { 
-            	clear:both;
-                height:0;
-                font-size: 1px;
-                line-height: 0px;
-            }
-            --> 
-      </style>
-      <!--[if IE]>
-      <style type="text/css"> 
-         .twoColLiqRtHdr #sidebar1 { padding-top: 30px; }
-         .twoColLiqRtHdr #mainContent { zoom: 1; padding-top: 15px; }
-      </style>
-      <![endif]-->
-   </head>
-   <body class="twoColLiqRtHdr">
-      <div id="container">
-         <div id="header"><img src="../../assets/images/banner.png" width="100%" height="25%" alt="Nature Quest">
-<!-- end #header -->
-</div>
-         <div id="menu">
-            <table>
-               <td><%= link_to "Home", root_path %></td>
-               <td><%= link_to "Development Blog", "http://www.naturequest.tumblr.com" %></td>
-               <% if user_signed_in? %>
-               <td> <%= link_to('Logout', destroy_user_session_path, :method => :delete) %> </td>
-               <% else %>
-               <td> <%= link_to('Login', new_user_session_path)  %></td>
-                  <% end %>
-		        <td><%= link_to "About", "#" %></td>
-				<td><%= link_to "Contact Us", "#" %></td>
-            </table>
-            <!-- end #menu-->
-         </div>
-		  <div id="mainContent">
-<%= yield %>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Nature Quest</title>
 
-<!-- end #mainContent -->
-         </div>
-         <div id="sidebar1">
-            <h2>
+<style type="text/css">
+* {margin:0;padding:0; height: auto}/*remove browser defaults*/
+body{
+    margin:0;
+    padding:0;
+}
+p{
+    font-family:Times New Roman;
+    line-height:1.3em;
+    margin:1em 0;/*added this to override browser defaults*/
+    padding: 0 1em;
+}
+#wrap{
+    margin:10px auto 0 auto; 
+    width: 85%;
+    /*border:5px solid red;*/
+}
+#header{
+    width:100%;
+}
+#header img {	
+	width: 100%;
+}
+#nav {
+    width: 100%;
+    padding-top:1px;/*un-collapse margin on nav p*/
+	background-color: #98bf21;
+	}
+#nav ul {
+	list-style: none;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	}
+#nav li {
+	float: left; 
+	width: 20%;
+	}
+#nav li a {
+	text-align:center;
+	display: block;
+	color: #FFF;
+	padding:4px;
+	text-decoration: none;	
+	text-transform:uppercase;
+	font-weight: bold;
+	border-right: 1px solid #ccc;
+	}
+#nav li:first-child a {
+	border-left: 1px solid #ccc;
+	}
+#nav li a:hover {
+	background-color: #7sA991A; 
+	}
+#content{
+    width:100%;
+    margin:0 auto;
+    overflow:hidden;/*contain inner child floats*/
+    /*float:left; this will also contain floated children*/
+    padding-bottom:20px;
+}
+
+#main{
+    float:left;
+    width:75%;
+}
+#sidepanel{
+    float:right;
+    width:25%;
+	background-color:Grey;
+}
+#footer{
+    padding-top:1px;/*un-collapse margin on footer p*/
+    background-color:Gray;
+    clear:both;
+}
+
+</style>
+</head>
+<body>
+<div id="wrap">
+    <div id="header"> 
+    <%= image_tag('banner.png') %>
+    </div>
+    <div id="nav">
+       <ul>
+               <li><%= link_to "Home", root_path %></li>
+               <li><%= link_to "Development Blog", "http://www.naturequest.tumblr.com" %></li>
+               <% if user_signed_in? %>
+               <li> <%= link_to('Logout', destroy_user_session_path, :method => :delete) %> </li>
+               <% else %>
+               <li> <%= link_to('Login', new_user_session_path)  %></li>
+                  <% end %>
+		        <li><%= link_to "About", "#" %></li>
+				<li><%= link_to "Contact Us", "#" %></li>
+            </ul>
+    </div>
+    <div id="content">
+      <div id="main">
+     <%= yield %>
+      </div>	
+        <div id="sidepanel">	
+            <% if user_signed_in? %>
+            <div><%=current_user.email %></div>
+            <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+            <% else %>
+			 <%= link_to('Login', new_user_session_path)  %>
+            <% end %>
+				 <h1>
                About Us 
-            </h2>
+            </h1>
             <p>
               Nature Quest is currently in development</p>
 			<p>  
 			  Look foward to seeing us in action.
             </p>
-            <% if user_signed_in? %>
-            <div><%=current_user.email %></div>
-            <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
-            <% else %>
-            <%= link_to('Login', new_user_session_path)  %>
-            <% end %>
-            <!-- end #sidebar1 -->
-         </div>
-         <br class="clearfloat" />
-         <div id="footer">
-            <p>Footer</p>
-            <!-- end #footer -->
-         </div>
-         <!-- end #container -->
-      </div>
-   </body>
+        </div>
+  </div>
+    <div id="footer"><p>Copyright&copy; Dan Acton</p></div>
+</div>
+
+</body>
 </html>
