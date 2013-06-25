@@ -11,3 +11,88 @@
  *= require_self
  *= require_tree .
  */
+ 
+ <style type="text/css">
+
+* {
+	padding: 0;
+	margin: 0;
+}
+#toolbar {
+	width: 80%;
+		bottom: 0px;
+		height: 50px;
+		background-color:#0F3;
+	margin-right: 10%;
+	margin-left: 10%;
+
+position:fixed;
+}
+#header img {
+	height: 100px;
+	width: 100%;
+}
+body{
+    margin:0;
+    padding:0;
+	background-size: 100%;
+}
+#holder {
+	margin: auto; 
+	width:80%;
+	overflow:hidden;
+	clear:both;
+}
+#content {
+	margin: auto;
+	margin-bottom: 50px;
+}
+#toolbar ul {
+	list-style: none;
+	height: 50px;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	}
+#toolbar li {
+	float: left; 
+	width: 20%;
+	height: 50px;
+	}
+#toolbar li a {
+	height: 50px;
+	text-align:center;
+	display: block;
+	color: #FFF;
+	padding: 15px;
+	text-decoration:none;
+	text-transform:uppercase;
+	font-weight: bold;
+	border-right: 1px solid #ccc;
+	}
+#toolbar li:first-child a {
+	border-left: 1px solid #ccc;
+	}
+#toolbar li a:hover {
+	background-color: #7sA991A; 
+	}
+#login {
+ margin-left: auto ;
+  margin-right: auto ;
+  text-align:center;
+}
+#login input {
+	height: 300%;
+	width: 50%;
+    font-size:20pt;
+}
+#sigin {
+	width:200px;
+	height: 200px;
+}
+#sigin img:hover {
+
+}
+	
+</style>

@@ -1,132 +1,34 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html lang="en">
+<!doctype html>
+<html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta charset="utf-8">
 <title>Nature Quest</title>
 
-<style type="text/css">
-* {	margin: 0;	padding: 0; }/*remove browser defaults*/
-
-body{
-    margin:0;
-    padding:0;
-}
-p {
-    font-family:Times New Roman;
-    line-height:1.3em;
-    margin:1em 0;/*added this to override browser defaults*/
-    padding: 0 1em;
-}
-#wrap{
-    margin:10px auto 0 auto; 
-    width: 85%;
-    /*border:5px solid red;*/
-}
-#header{
-    width:100%;
-}
-#header img {	
-	width: 100%;
-}
-#nav {
-    width: 100%;
-    padding-top:1px;/*un-collapse margin on nav p*/
-	background-color: #98bf21;
-	}
-#nav ul {
-	list-style: none;
-	width: 100%;
-	margin: 0;
-	padding: 0;
-	overflow: hidden;
-	}
-#nav li {
-	float: left; 
-	width: 20%;
-	}
-#nav li a {
-	text-align:center;
-	display: block;
-	color: #FFF;
-	padding:4px;
-	text-decoration: none;	
-	text-transform:uppercase;
-	font-weight: bold;
-	border-right: 1px solid #ccc;
-	}
-#nav li:first-child a {
-	border-left: 1px solid #ccc;
-	}
-#nav li a:hover {
-	background-color: #7sA991A; 
-	}
-#content{
-    width:100%;
-    margin:0 auto;
-    overflow:hidden;/*contain inner child floats*/
-    /*float:left; this will also contain floated children*/
-    padding-bottom:20px;
-}
-
-#main{
-    float:left;
-    width:75%;
-}
-#sidepanel{
-    float:right;
-	height: vmax;
-    width:25%;
-	background-color:Grey;
-}
-#footer{
-    padding-top:1px;/*un-collapse margin on footer p*/
-    background-color:Gray;
-    clear:both;
-}
-
-</style>
+<%= stylesheet_link_tag "application", :media => "all" %>
 </head>
-<body>
-<div id="wrap">
-    <div id="header"> 
-    <%= image_tag('banner.png') %>
-    </div>
-    <div id="nav">
-       <ul>
-               <li><%= link_to "Home", root_path %></li>
-               <li><%= link_to "Development Blog", "http://www.naturequest.tumblr.com" %></li>
-               <% if user_signed_in? %>
-               <li> <%= link_to('Logout', destroy_user_session_path, :method => :delete) %> </li>
-               <% else %>
-               <li> <%= link_to('Login', new_user_session_path)  %></li>
-                  <% end %>
-		        <li><%= link_to "About", "#" %></li>
-				<li><%= link_to "Contact Us", "#" %></li>
-            </ul>
-    </div>
-    <div id="content">
-      <div id="main">
-     <%= yield %>
-      </div>	
-        <div id="sidepanel">	
-            <% if user_signed_in? %>
-            <div><%=current_user.email %></div>
-            <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
-            <% else %>
-			 <%= link_to('Login', new_user_session_path)  %>
-            <% end %>
-				 <h1>
-               About Us 
-            </h1>
-            <p>
-              Nature Quest is currently in development</p>
-			<p>  
-			  Look foward to seeing us in action.
-            </p>
-        </div>
+
+<body background="/assets/background.png">
+<div id="holder">
+<div  id="header">
+  <%= image_tag('banner.png') %>
   </div>
-    <div id="footer"><p>&copy; Copyright Nature Quest 2013.</p></div>
+<div id="content"> 
+ <%= yield %>
 </div>
 
+</div>
+<div  id="toolbar">
+	<ul>
+	<li><%= link_to "Home", root_path %></li>
+	<li><%= link_to "Development Blog", "http://www.naturequest.tumblr.com" %></li>
+	<% if user_signed_in? %>
+	<li> <%= link_to('Logout', destroy_user_session_path, :method => :delete) %> </li>
+	<% else %>
+	<li> <%= link_to('Login', new_user_session_path)  %></li>
+	<% end %>
+	<li><%= link_to "About", "#" %></li>
+	<li><%= link_to "Contact Us", "#" %></li>
+	</ul>
+</div>
 </body>
 </html>
