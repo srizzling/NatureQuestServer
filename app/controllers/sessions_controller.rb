@@ -62,6 +62,7 @@ class SessionsController < ApplicationController
     @user.email = params[:email]
     @user.password = params[:password]
     @user.password_confirmation = params[:password_confirmation]
+    @user.ensure_authentication_token!
 
     if @user.save
       sign_in @user
