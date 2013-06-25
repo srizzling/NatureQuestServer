@@ -62,14 +62,14 @@ class SessionsController < ApplicationController
     @user.email = params[:email]
     @user.password = params[:password]
     @user.password_confirmation = params[:password_confirmation]
-    
+
     if @user.save
       sign_in @user
       render :status => 200,
            :json => { :success => true,
                       :info => "Registered",
                       :data => { :user => @user,
-                                 :auth_token => current_user.authentication_token } }
+                                 :auth_token => @user.authentication_token } }
     else
       render :status => :unprocessable_entity,
              :json => { :success => false,
@@ -78,6 +78,7 @@ class SessionsController < ApplicationController
     end
   end
 
+  
 
 
 
