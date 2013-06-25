@@ -6,13 +6,20 @@ Nature::Application.routes.draw do
   resources :tests
 
 
+   match '/api/login' => 'sessions#login', :as => 'login'
+   match '/api/logout' => 'sessions#logout', :as => 'logout'
+   match '/api/signup' => "sessions#signup", :as => 'signup'
+
+
   resources :api do
     get 'all', :on => :collection
     get 'find', :on => :collection
     post 'login', :on => :collection
     delete 'logout', :on => :collection
     post  'geotag', :on => :collection
+    get 'location', :on => :collection
   end
+
 
    resources :qrcodes
 
