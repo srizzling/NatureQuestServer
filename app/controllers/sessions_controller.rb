@@ -73,12 +73,12 @@ class SessionsController < ApplicationController
     else
       render :status => :unprocessable_entity,
              :json => { :success => false,
-                        :info => @user.errors,
+                        :info => @user.errors.full_messages,
                         :data => {} }
     end
   end
 
-  
+
 
 
 
