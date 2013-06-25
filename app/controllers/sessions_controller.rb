@@ -58,7 +58,11 @@ class SessionsController < ApplicationController
 
 
   def signup
-    @user = User.new(params[:user])
+    @user = User.new()
+    @user.email = params[:email]
+    @user.password = params[:password]
+    @user.password_confirmation = params[:password_confirmation]
+    
     if @user.save
       sign_in @user
       render :status => 200,
