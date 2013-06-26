@@ -1,4 +1,6 @@
 class QuestsController < ApplicationController
+
+  
   # GET /quests
   # GET /quests.json
   def index

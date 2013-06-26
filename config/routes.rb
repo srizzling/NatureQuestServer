@@ -12,12 +12,13 @@ Nature::Application.routes.draw do
 
 
   resources :api do
-    get 'all', :on => :collection
+    get 'qrcodes', :on => :collection
     get 'find', :on => :collection
     post 'login', :on => :collection
     delete 'logout', :on => :collection
     post  'geotag', :on => :collection
     get 'location', :on => :collection
+    get 'quests', :on => :collection
   end
 
 

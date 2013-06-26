@@ -12,6 +12,7 @@ class SessionsController < ApplicationController
 	#==========================================================================
 
 	def login
+    @quests = Quest.all
     email = params[:email]
     password = params[:password]
     if request.format != :json
@@ -40,7 +41,7 @@ class SessionsController < ApplicationController
       logger.info("User #{email} failed signin, password \"#{password}\" is invalid")
       render :status=>401, :json=>{:message=>"Invalid email or password."}
     else
-      render :status=>200, :json=>{:token=>@user.authentication_token}
+      render :status=>200, :json=>{:token=>@user.authentication_token, :user=> @user, :quests=>@quests}
     end
   end
 
