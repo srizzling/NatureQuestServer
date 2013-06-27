@@ -11,7 +11,7 @@
 <% @quests.each do |quest| %>
 <% if quest.userid == current_user.id %>
   <tr>
-    <td><%= quest.name %></td>
+    <td><%= link_to quest.name, {:controller => "qrcodes", :action => "index", :quest_id => quest.id }%></td>
   </tr>
   <% end %>
 <% end %>
@@ -23,6 +23,9 @@
 
 
 <!----- 
+
+
+
 <div>
   <h1>Welcome to your Admin Dashboard</h1>
 
