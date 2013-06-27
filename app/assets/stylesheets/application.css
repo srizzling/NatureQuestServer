@@ -22,7 +22,7 @@
 	width: 80%;
 		bottom: 0px;
 		height: 50px;
-		background-color:#0F3;
+		background-color:#ACD473;
 	margin-right: 10%;
 	margin-left: 10%;
 
@@ -81,20 +81,20 @@ body{
 	border-left: 1px solid #ccc;
 	}
 #toolbar li a:hover {
-	background-color: #7sA991A; 
+	background-color:#ACD453;
 	}
 #login {
  margin-left: auto ;
   margin-right: auto ;
   text-align:center;
 }
-input:not([type=submit]):not([type=file]) {
+#login input:not([type=submit]):not([type=file]) {
 	height: 300%;
 	width: 50%;
     font-size:20pt;
 }
 
-input[type=submit] {
+#login input[type=submit] {
 	border: 0;
 	background-image: url(/assets/login.png);
 	background-size: contain;
@@ -102,6 +102,7 @@ input[type=submit] {
 	width: 20%;
 	height: 50px;
 }
+
 #qrtable {
 	width: 100%;
 	margin:auto;
@@ -109,5 +110,29 @@ input[type=submit] {
 #qrtable td {
 	height: auto;
 }
-	
+#newqr {
+	width: 100%;
+	text-align:center;
+}
+#newqr select,p, label {
+	width: 50%;
+	text-align: center;
+    font-size:16pt;
+}
+#contact form,table {
+	margin-left: 2%;
+	width: auto;
+}
+#contact input:not([type=submit]):not([type=file]) {
+	width: auto;
+	  font-size:16pt;
+}
+#contact textarea {
+	width: 150%;
+}
+#contact input:([type=submit]):not([type=file]) {
+	background-image: url(/assets/contactbutton.png);
+	background-size: 100%;
+}
+
 </style>

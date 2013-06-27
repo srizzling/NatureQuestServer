@@ -1,30 +1,67 @@
-<h1>Listing quests</h1>
-
-<table>
+<div>
+ <h1>Quests</h1>
+  <table border="1">
   <tr>
     <th>Name</th>
-    <th>Userid</th>
-    <th>Cat</th>
-    <th></th>
-    <th></th>
-    <th></th>
   </tr>
 
 <% @quests.each do |quest| %>
+<% if quest.userid == current_user.id %>
   <tr>
-    <td><%= quest.name %></td>
-    <td><%= quest.userid %></td>
-    <td><%= quest.cat %></td>
-    <td><%= link_to 'Show', quest %></td>
-    <td><%= link_to 'Edit', edit_quest_path(quest) %></td>
-    <td><%= link_to 'Destroy', quest, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to quest.name, {:controller => "qrcodes", :action => "index", :quest_id => quest.id }%></td>
   </tr>
+  <% end %>
+<% end %>
+</table>
+
+</div>
+
+
+
+
+<!----- 
+
+
+
+<div>
+  <h1>Welcome to your Admin Dashboard</h1>
+
+  <h3> List of Quests Created: </h3>
+
+  <h3> List of All Users </h3>
+
+
+
+
+  <h3> List of Generated QR codes </h3>
+
+   <table border="1">
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @qrcodes.each do |qr| %>
+<% if qr.userid == current_user.id %>
+  <tr>
+    <td><%= qr.name %></td>
+    <td><%= link_to 'Show', qr %></td>
+    <td><%= link_to 'Edit', edit_qrcode_path(qr) %></td>
+    <td><%= link_to 'Destroy', qr, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+  <% end %>
 <% end %>
 </table>
 
 
 
+  <h3>Actions: </h3>
 
-<br />
+  <%= link_to "Create New Quest", '#', class: "btn btn-large btn-primary" %>
+  <%= link_to "Create New QR Code", '#', class: "btn btn-large btn-primary" %>
 
-<%= link_to 'New Quest', new_quest_path %>
+</div>
+
+----->
