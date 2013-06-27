@@ -12,7 +12,7 @@ class ApiController < ApplicationController
 
     @qrcode = Qrcode.find_by_ref(params[:r])
 
-    if @qrcode.userid == current_user.userid
+    if @qrcode.userid == current_user.id
     if @qrcode	
      @qrcode.Long = params[:long]
      @qrcode.lat = params[:lat]
