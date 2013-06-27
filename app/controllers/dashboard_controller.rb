@@ -4,5 +4,7 @@ class DashboardController < ApplicationController
  
 def index 
 @qrcodes = Qrcode.all  
+@quests = Quest.all
+
 end
 end

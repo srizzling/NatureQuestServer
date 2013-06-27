@@ -18,7 +18,7 @@ document.getElementById("new_user").submit();
     <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
   <% end -%>
 
-<div id="sigin" onClick="formSubmit()"><%= image_tag('banner.png') %></div>
+<div id="sigin"><%= f.submit 'login' %></div>
 
   <% end %>
 <p>  

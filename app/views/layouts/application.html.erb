@@ -16,19 +16,25 @@
  <%= yield %>
 </div>
 
-</div>
 <div  id="toolbar">
 	<ul>
-	<li><%= link_to "Home", root_path %></li>
-	<li><%= link_to "Development Blog", "http://www.naturequest.tumblr.com" %></li>
 	<% if user_signed_in? %>
+	<li> <%= link_to("Create Quest", new_quest_path)  %> </li>
+	<li> <%= link_to "Profile", "#" %> </li>
 	<li> <%= link_to('Logout', destroy_user_session_path, :method => :delete) %> </li>
 	<% else %>
+		<li><%= link_to "Home", root_path %></li>
+	<li><%= link_to "Development Blog", "http://www.naturequest.tumblr.com" %></li>
+	
+	
 	<li> <%= link_to('Login', new_user_session_path)  %></li>
-	<% end %>
+	
 	<li><%= link_to "About", "#" %></li>
 	<li><%= link_to "Contact Us", "#" %></li>
+	<% end %>
 	</ul>
+</div>
+
 </div>
 </body>
 </html>
