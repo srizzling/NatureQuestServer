@@ -41,7 +41,12 @@ class SessionsController < ApplicationController
       logger.info("User #{email} failed signin, password \"#{password}\" is invalid")
       render :status=>401, :json=>{:message=>"Invalid email or password."}
     else
-      render :status=>200, :json=>{:token=>@user.authentication_token, :user=> @user, :quests=>@quests}
+
+      if @user.picture == nil 
+        @user.picture = "panda"
+        @user.save
+      end
+      render :status=>200, :json=>{:picture=> @user.picture,:token=>@user.authentication_token, :user=> @user, :quests=>@quests}
     end
   end
 

@@ -19,6 +19,7 @@ Nature::Application.routes.draw do
     post  'geotag', :on => :collection
     get 'location', :on => :collection
     get 'updatescore', :on => :collection
+    post 'upPicture', :on => :collection
   end
 
 

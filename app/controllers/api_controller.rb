@@ -45,8 +45,15 @@ def location
   @result = Qrcode.select('Long, lat')
                 .where("quest_id=?", params[:quest_id])
   render json: @result
-
 end
+
+def upPicture
+  @user = current_user
+  @user.picture = params[:picture]
+  @user.save
+end
+
+
 
 def updatescore
  currid = current_user.id
