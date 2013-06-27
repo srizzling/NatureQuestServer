@@ -35,7 +35,7 @@ class QrcodesController < ApplicationController
   # GET /qrcodes/new.json
   def new
     @qrcode = Qrcode.new
-    @quests= Quest.all
+    @quests= Quest.find_all_by_userid(current_user)
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @qrcode }

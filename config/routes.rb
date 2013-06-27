@@ -18,7 +18,7 @@ Nature::Application.routes.draw do
     delete 'logout', :on => :collection
     post  'geotag', :on => :collection
     get 'location', :on => :collection
-    get 'quests', :on => :collection
+    get 'updatescore', :on => :collection
   end
 
 

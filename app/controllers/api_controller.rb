@@ -41,6 +41,12 @@ def location
 
 end
 
+def updatescore
+  score = current_user.score
+  score = score + 1
+  render json: current_user
+end
+
 
 
 
