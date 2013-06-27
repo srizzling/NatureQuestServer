@@ -42,9 +42,17 @@ def location
 end
 
 def updatescore
-  score = current_user.score
-  score = score + 1
-  render json: current_user
+ currid = current_user.id
+ score = Leaderboard.find_or_create_by_username(:user_id => currid)
+      if score.score == nil 
+        score.score = 0
+      else
+        newScore = score.score + 1
+        score.score = newScore
+      end
+      score.save
+      @leaderboard = Leaderboard.all
+      render json: @leaderboard
 end
 
 
