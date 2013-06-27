@@ -15,6 +15,9 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  imgloc     :string(255)
+#  userid     :integer
+#  questid    :integer
+#  quest_id   :integer
 #
 
 class Qrcode < ActiveRecord::Base
