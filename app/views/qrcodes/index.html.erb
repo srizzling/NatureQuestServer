@@ -5,7 +5,7 @@
   <% i = 0 %>
 <% @qrcodes.each do |qrcode| %>
   <% if qrcode.userid == current_user.id %>
-   <td><%= image_tag qrcode.imgloc %>
+   <td><%= link_to image_tag(qrcode.imgloc), qrcode_path(qrcode) %>
     <br />Ref: #<%= qrcode.ref %></td>
 	<% i = i + 1 %>
    <% if i % 5 == 0 %>
