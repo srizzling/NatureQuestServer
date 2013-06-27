@@ -9,7 +9,10 @@ class ApiController < ApplicationController
   end
 
   def geotag
+
     @qrcode = Qrcode.find_by_ref(params[:r])
+
+    if @qrcode.userid == current_user.userid
     if @qrcode	
      @qrcode.Long = params[:long]
      @qrcode.lat = params[:lat]
@@ -21,6 +24,10 @@ class ApiController < ApplicationController
     else
       render :json => {:success => false, :message => "Couldn't find the reference"}
     end
+  else
+  render :json => {:success => false, :message => "Not Owner of QRCode"}
+  end
+
 end
 
 def qrcodes
