@@ -3,36 +3,33 @@
 <head>
 <meta charset="utf-8">
 <title>Nature Quest</title>
-
+<%= javascript_include_tag "application" %>
 <%= stylesheet_link_tag "application", :media => "all" %>
 </head>
 
 <body background="/assets/background.png">
 <div id="holder">
 <div  id="header">
-  <%= image_tag('banner.png') %>
-  </div>
+	<%= image_tag('banner.png') %>
+</div>
 <div id="content"> 
- <%= yield %>
+	<%= yield %>
 </div>
 
 <div  id="toolbar">
 	<ul>
 	<% if user_signed_in? %>
-	<li> <%= link_to "Home", {:controller => "quests", :action => "index" }  %> </li>
-	<li> <%= link_to "Create Quest", {:controller => "quests", :action => "new" }  %> </li>
-	<li> <%= link_to "Create Question", {:controller => "qrcodes", :action => "new" }  %> </li>
-	<li> <%= link_to "Profile", "#" %> </li>
-	<li> <%= link_to('Logout', destroy_user_session_path, :method => :delete) %> </li>
+		<li> <%= link_to "Home", {:controller => "quests", :action => "index" }  %> </li>
+		<li> <%= link_to "Create Quest", {:controller => "quests", :action => "new" }  %> </li>
+		<li> <%= link_to "Create Question", {:controller => "qrcodes", :action => "new" }  %> </li>
+		<li> <%= link_to "Profile", "#" %> </li>
+		<li> <%= link_to('Logout', destroy_user_session_path, :method => :delete) %> </li>
 	<% else %>
 		<li><%= link_to "Home", root_path %></li>
-	<li><%= link_to "Development Blog", "http://www.naturequest.tumblr.com" %></li>
-	
-	
-	<li> <%= link_to('Login', new_user_session_path)  %></li>
-	
-	<li> <%= link_to "About Us", about_index_path  %> </li>
-	<li> <%= link_to "Contact Us", contact_index_path  %> </li>
+		<li><%= link_to "Development Blog", "http://www.naturequest.tumblr.com" %></li>
+		<li> <%= link_to('Login', new_user_session_path)  %></li>
+		<li> <%= link_to "About Us", about_index_path  %> </li>
+		<li> <%= link_to "Contact Us", contact_index_path  %> </li>
 	<% end %>
 	</ul>
 </div>

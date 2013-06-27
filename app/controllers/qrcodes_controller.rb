@@ -8,6 +8,7 @@ class QrcodesController < ApplicationController
     #@qrcodes = Qrcode.find_all_by_userid(current_user.id)
     #@qrcodes= Qrcode.all
 @qrcodes = Qrcode.find_all_by_quest_id(params[:quest_id])
+@quest = Quest.find(params[:quest_id])
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @qrcodes }

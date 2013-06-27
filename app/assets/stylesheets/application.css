@@ -20,13 +20,12 @@
 }
 #toolbar {
 	width: 80%;
-		bottom: 0px;
-		height: 50px;
-		background-color:#ACD473;
+	bottom: 0px;
+	height: 50px;
+	background-color:#ACD473;
 	margin-right: 10%;
 	margin-left: 10%;
-
-position:fixed;
+	position:fixed;
 }
 #header img {
 	height: 100px;
@@ -41,19 +40,17 @@ body{
 	height: 100%;
 }
 #holder {
-	margin-left:auto;
 	margin: auto; 
 	width:80%;
 	overflow:hidden;
-	clear:both;
 	height: 100%;
 }
 #content {
-	margin: auto;	
- margin-bottom: 50px;
+	margin-bottom: 50px;
+	width: 100%;
 }
 #toolbar {	
- margin-left: auto ;
+	margin-left: auto ;
 }
 #toolbar ul {
 	list-style: none;
@@ -84,40 +81,51 @@ body{
 	background-color:#ACD453;
 	}
 #login {
- margin-left: auto ;
-  margin-right: auto ;
-  text-align:center;
-}
-#login input:not([type=submit]):not([type=file]) {
-	height: 300%;
-	width: 50%;
-    font-size:20pt;
-}
-
-#login input[type=submit] {
-	border: 0;
-	background-image: url(/assets/login.png);
-	background-size: contain;
-	background-repeat:no-repeat;
-	width: 20%;
-	height: 50px;
-}
-
-#qrtable {
-	width: 100%;
-	margin:auto;
-}
-#qrtable td {
-	height: auto;
-}
-#newqr {
-	width: 100%;
+	margin: 0;
 	text-align:center;
 }
-#newqr select,p, label {
+#login label {
+	font-size: 16pt;
+s}
+#login table {
+	margin-left: auto;
+	margin-right:auto;
+	text-align:center;
+	width: 50%;
+}
+#login input:not([type=submit]):not([type=file]) {
+	width: 100%;
+    font-size:20pt;
+	overflow:hidden;
+}
+#checkbox {	
+	display: inline;
+}
+#qrtable, #questtable {
+	width: 100%;
+}
+#qrtable td, #questtable td {
+	height: auto;
+}
+#qr , #quest{
+	width: 100%;
+}
+#qr p, #qr label, #quest label {
 	width: 50%;
 	text-align: center;
     font-size:16pt;
+}
+#qr select {
+	width: 100%;
+	font-size: 16pt;
+}
+#qr, input:not([type=submit]):not([type=file]) {
+	width: auto;
+	font-size:16pt;
+}
+#quest, input:not([type=submit]):not([type=file]) {
+	width: auto;
+	font-size:16pt;
 }
 #contact form,table {
 	margin-left: 2%;

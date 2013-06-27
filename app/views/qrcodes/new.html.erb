@@ -1,6 +1,13 @@
-
-
 <%- model_class = Qrcode -%>
-
+<script>
+function formSubmit() {
+	document.getElementById("new_qrcode").submit();
+}
+</script>
+<h1>Create Question</h1>
+ <table id="qr">
 <%= render :partial => 'form' %>
-
+ <tr>
+ <td onclick="formSubmit()"><%= link_to image_tag("/assets/create.png"), "#" %></td>
+ </tr>
+</table>

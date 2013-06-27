@@ -1,11 +1,16 @@
 <%- model_class = Qrcode -%>
+<h1>Quest: <%= @quest.name =%></h1>
   <table id="qrtable">
+  <tr>
+  <td><%= link_to image_tag("/assets/update.png"), edit_quest_path(@quest.id) %></td>
+  <td><%= link_to image_tag("/assets/delete.png"), edit_quest_path(@quest.id)  %></td>
+  </tr>
     <tr>
   <% i = 0 %>
 <% @qrcodes.each do |qrcode| %>
   <% if qrcode.userid == current_user.id %>
    <td><%= link_to image_tag(qrcode.imgloc), qrcode_path(qrcode) %>
-    <br />Ref: #<%= qrcode.ref %></td>
+    <br /><%= qrcode.name %></td>
 	<% i = i + 1 %>
    <% if i % 4 == 0 %>
    </tr><tr>
