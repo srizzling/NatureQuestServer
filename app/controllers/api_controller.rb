@@ -76,6 +76,12 @@ def updatescore
       render json: @leaderboard
 end
 
+def getLeaderboard
+  @leaderboard = Leaderboard.select("score,email,picture")
+              .order('score desc')
+  render json: @leaderboard
+end
+
 
 
 
