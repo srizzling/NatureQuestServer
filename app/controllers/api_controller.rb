@@ -43,7 +43,7 @@ end
 
 def updatescore
  currid = current_user.id
- score = Leaderboard.find_or_create_by_username(:user_id => currid)
+ score = Leaderboard.find_or_create_by_user_id(:user_id => currid)
       if score.score == nil 
         score.score = 0
       else
