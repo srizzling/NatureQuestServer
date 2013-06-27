@@ -1,13 +1,18 @@
 <%- model_class = Qrcode -%>
 
-  <table border="1">
+  <table id="qrtable">
+    <tr>
+  <% i = 0 %>
 <% @qrcodes.each do |qrcode| %>
   <% if qrcode.userid == current_user.id %>
-  <th>
-  <tr>
-    <td>Ref: #<%= qrcode.ref %></td>
-    <td><%= image_tag qrcode.imgloc %></td>
-  </tr>
-  </th>
+   <td><%= image_tag qrcode.imgloc %>
+    <br />Ref: #<%= qrcode.ref %></td>
+	<% i = i + 1 %>
+   <% if i % 5 == 0 %>
+   </tr><tr>
+   <% end %>
+
   <% end %>
+  
 <% end %>
+</tr></table>
