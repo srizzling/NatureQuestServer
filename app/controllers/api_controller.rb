@@ -61,7 +61,10 @@ def updatescore
 
       if score.username == nil
         score.username = current_user.email
+      end
 
+      if score.picture == nil 
+         score.picture = "profile_panda"
       end
       if score.score == nil 
         score.score = 0
