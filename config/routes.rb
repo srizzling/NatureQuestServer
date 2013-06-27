@@ -20,6 +20,7 @@ Nature::Application.routes.draw do
     get 'location', :on => :collection
     get 'updatescore', :on => :collection
     post 'upPicture', :on => :collection
+    get 'getLeaderboard', :on => :collection
   end
 
 
