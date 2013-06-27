@@ -35,17 +35,23 @@ position:fixed;
 body{
     margin:0;
     padding:0;
+	background-position:top;
+	background-repeat:no-repeat;
 	background-size: 100%;
 }
 #holder {
+	margin-left:auto;
 	margin: auto; 
 	width:80%;
 	overflow:hidden;
 	clear:both;
 }
 #content {
-	margin: auto;
-	margin-bottom: 50px;
+	margin: auto;	
+ margin-bottom: 50px;
+}
+#toolbar {	
+ margin-left: auto ;
 }
 #toolbar ul {
 	list-style: none;
@@ -82,17 +88,19 @@ body{
   margin-right: auto ;
   text-align:center;
 }
-#login input {
+input:not([type=submit]):not([type=file]) {
 	height: 300%;
 	width: 50%;
     font-size:20pt;
 }
-#sigin {
-	width:200px;
-	height: 200px;
-}
-#sigin img:hover {
 
+input[type=submit] {
+	border: 0;
+	background-image: url(/assets/login.png);
+	background-size: contain;
+	background-repeat:no-repeat;
+	width: 20%;
+	height: 50px;	
 }
 	
 </style>

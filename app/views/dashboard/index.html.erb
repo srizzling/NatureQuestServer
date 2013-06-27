@@ -1,4 +1,29 @@
 <div>
+ <h1>Quests</h1>
+  <table border="1">
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @quests.each do |quest| %>
+<% if quest.userid == current_user.id %>
+  <tr>
+    <td><%= quest.name %></td>
+  </tr>
+  <% end %>
+<% end %>
+</table>
+
+</div>
+
+
+
+
+<!----- 
+<div>
   <h1>Welcome to your Admin Dashboard</h1>
 
   <h3> List of Quests Created: </h3>
@@ -38,3 +63,5 @@
   <%= link_to "Create New QR Code", '#', class: "btn btn-large btn-primary" %>
 
 </div>
+
+----->
