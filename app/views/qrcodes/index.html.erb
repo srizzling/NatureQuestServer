@@ -1,5 +1,4 @@
 <%- model_class = Qrcode -%>
-
   <table id="qrtable">
     <tr>
   <% i = 0 %>
@@ -8,7 +7,7 @@
    <td><%= link_to image_tag(qrcode.imgloc), qrcode_path(qrcode) %>
     <br />Ref: #<%= qrcode.ref %></td>
 	<% i = i + 1 %>
-   <% if i % 5 == 0 %>
+   <% if i % 4 == 0 %>
    </tr><tr>
    <% end %>
 

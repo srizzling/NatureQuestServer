@@ -19,6 +19,7 @@
 <div  id="toolbar">
 	<ul>
 	<% if user_signed_in? %>
+	<li> <%= link_to "Quests", {:controller => "dashboard", :action => "index" }  %> </li>
 	<li> <%= link_to("Create Quest", new_quest_path)  %> </li>
 	<li> <%= link_to "Profile", "#" %> </li>
 	<li> <%= link_to('Logout', destroy_user_session_path, :method => :delete) %> </li>

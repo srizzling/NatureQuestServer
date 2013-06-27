@@ -15,7 +15,7 @@
 </div>
 
 <center>
-<%= image_tag @qrcode.imgloc %>
+<div onclick="window.print()" ><%= image_tag @qrcode.imgloc %></div>
 
 
 <div class="reference">
@@ -41,10 +41,7 @@
   <%= link_to t('.edit', :default => t("helpers.links.edit")),
               edit_qrcode_path(@qrcode), :class => 'btn' %>
   <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-              qrcode_path(@qrcode),
-              :method => 'delete',
-              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-              :class => 'btn btn-danger' %>
+              qrcodes_path, :class => 'btn' %>
   </center>
 </div>
 </div>

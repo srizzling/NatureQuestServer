@@ -20,7 +20,7 @@ class QrcodesController < ApplicationController
   # GET /qrcodes/1.json
   def show
     @qrcode = Qrcode.find(params[:id])
-
+     params[:quest_id]
     if @qrcode.imgloc == nil
       @qrcode.imgloc = request.protocol+request.host_with_port+request.fullpath+".png"
       @qrcode.save
@@ -92,11 +92,12 @@ class QrcodesController < ApplicationController
   # DELETE /qrcodes/1
   # DELETE /qrcodes/1.json
   def destroy
-    @qrcode = Qrcode.find(params[:id])
-    @qrcode.destroy
+    #@qrcode = Qrcode.find(params[:id])
+    #@qrcode.destroy
+Qrcode.destroy(Qrcode.find(params[:id]))
 
     respond_to do |format|
-      format.html { redirect_to qrcodes_url }
+	 format.html #
       format.json { head :no_content }
     end
   end
