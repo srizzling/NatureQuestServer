@@ -57,7 +57,7 @@ def updatescore
       end
       score.save
      
-      Leaderboard.select("score,username")
+      @leaderboard = Leaderboard.select("score,username")
                   .order('score desc')
       render json: @leaderboard
 end
