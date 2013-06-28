@@ -127,6 +127,20 @@ s}
 	width: auto;
 	font-size:16pt;
 }
+#quest img, #qr img, #qrtable img, #contact img, #login img {
+	max-height: 50px;
+	max-width: 150px;	
+}
+ #signup img, #reset img {
+	 max-height: 50px;
+	max-width: 150px;	
+	padding-top: 5px;
+ }
+
+#questtable img {
+	max-height:125px;
+	max-width: 125px;
+}
 #contact form,table {
 	margin-left: 2%;
 	width: auto;

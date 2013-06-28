@@ -1,5 +1,7 @@
 Nature::Application.routes.draw do
 
+  get "profile/index"
+
   get "about/index"
 
   get "contact/index"
