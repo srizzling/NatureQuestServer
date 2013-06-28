@@ -36,8 +36,7 @@
 <div class = "hidden-print">
 <div class="form-actions">
   <center>
-  <%= link_to t('.back', :default => t("helpers.links.back")),
-              qrcodes_path, :class => 'btn'  %>
+  <%= link_to 'Back', {:controller => "qrcodes", :action => "index", :quest_id => @qrcode.quest_id }%>
   <%= link_to t('.edit', :default => t("helpers.links.edit")),
               edit_qrcode_path(@qrcode), :class => 'btn' %>
   <%= link_to t('.destroy', :default => t("helpers.links.destroy")),

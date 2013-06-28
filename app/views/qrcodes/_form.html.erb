@@ -1,64 +1,38 @@
 
 <%= form_for @qrcode, :html => { :class => 'form-horizontal' } do |f| %>
-  <div class="control-group">
-    <%= f.label :name, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :name, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :question, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :question, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :SAnswer, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :SAnswer, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :Answer2, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :Answer2, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :Answer3, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :Answer3, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :Answer4, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :Answer4, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :Long, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :Long, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :lat, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :lat, :class => 'text_field' %>
-    </div>
-  </div>
-    <div class="control-group">
-    <%= f.label :quest_id, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.collection_select(:quest_id, Quest.find_all_by_userid(current_user.id), :id, :name) %>
-    </div>
-  </div>
+ <table id="newqr">
+ <tr>
+ <td> <%= f.label :name, :class => 'control-label' %></td>
+ <td><%= f.text_field :name, :class => 'text_field' %></td>
+ </tr>
+  <tr>
+ <td> <%= f.label :Question, :class => 'control-label' %></td>
+ <td><%= f.text_field :question, :class => 'text_field' %></td>
+ </tr>
+  <tr>
+ <td> <%= f.label :'Correct Answer', :class => 'control-label' %></td>
+  <td> <%= f.text_field :SAnswer, :class => 'text_field' %></td>
+ </tr>
+  <tr>
+ <td> <%= f.label :'Incorrect Answer', :class => 'control-label' %></td>
+ <td> <%= f.text_field :Answer2, :class => 'text_field' %></td>
+ </tr>
+ <tr>
+ <td> <%= f.label :'Incorrect Answer', :class => 'control-label' %></td>
+ <td> <%= f.text_field :Answer3, :class => 'text_field' %></td>
+ </tr>
+  <tr>
+  <td> <%= f.label :'Incorrect Answer', :class => 'control-label' %></td>
+ <td> <%= f.text_field :Answer4, :class => 'text_field' %></td>
+ </tr>
+  <tr>
+  <td colspan=2><%= f.collection_select(:quest_id, Quest.find_all_by_userid(current_user.id), :id, :name) %></td>
+ </tr>
+   <tr>
+    <td><%= f.submit nil, :class => 'btn btn-primary' %></td>
+    <td><%= link_to 'Cancel', {:controller => "qrcodes", :action => "index", :quest_id => @qrcode.quest_id }%></td>
+ </tr>
+</table>
 
-  <div class="form-actions">
-    <%= f.submit nil, :class => 'btn btn-primary' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                qrcodes_path, :class => 'btn' %>
-  </div>
 
 <% end %>

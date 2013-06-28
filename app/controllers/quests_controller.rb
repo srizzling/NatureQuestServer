@@ -4,7 +4,8 @@ class QuestsController < ApplicationController
   # GET /quests
   # GET /quests.json
   def index
-    @quests = Quest.all
+@qrcodes = Qrcode.all  
+@quests = Quest.all
 
     respond_to do |format|
       format.html # index.html.erb
