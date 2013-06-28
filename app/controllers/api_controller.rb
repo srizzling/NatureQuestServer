@@ -82,7 +82,7 @@ end
 def getLeaderboard
   @leaderboard = Leaderboard.select("score,username,picture")
               .order('score desc')
-  render json: => {:leaderboard=@leaderboard}
+  render :json => {:leaderboard=@leaderboard}
 end
 
 
