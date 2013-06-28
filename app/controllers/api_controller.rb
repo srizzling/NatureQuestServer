@@ -64,7 +64,7 @@ def updatescore
       end
 
       if score.picture == nil 
-         score.picture = "profile_panda"
+         score.picture = "profile_panda.png"
       end
       if score.score == nil 
         score.score = 0
@@ -82,7 +82,7 @@ end
 def getLeaderboard
   @leaderboard = Leaderboard.select("score,username,picture")
               .order('score desc')
-  render json: @leaderboard
+  render json: => {:leaderboard=@leaderboard}
 end
 
 

@@ -46,7 +46,11 @@ class SessionsController < ApplicationController
         @user.picture = "panda"
         @user.save
       end
-      render :status=>200, :json=>{:picture=> @user.picture,:token=>@user.authentication_token, :user=> @user, :quests=>@quests}
+
+       @leaderboard = Leaderboard.select("score,username,picture")
+              .order('score desc')
+
+      render :status=>200, :json=>{:picture=> @user.picture, :leaderboard=>@leaderboard, :token=>@user.authentication_token, :user=> @user, :quests=>@quests}
     end
   end
 
