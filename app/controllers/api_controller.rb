@@ -64,7 +64,7 @@ def updatescore
       end
 
       if score.picture == nil 
-         score.picture = "profile_panda.png"
+         score.picture = "panda"
       end
       if score.score == nil 
         score.score = 1

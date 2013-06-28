@@ -23,7 +23,7 @@
 		<li> <%= link_to "Create Quest", {:controller => "quests", :action => "new" }  %> </li>
 		<li> <%= link_to "Create Question", {:controller => "qrcodes", :action => "new" }  %> </li>
 		<li> <%= link_to "Profile", "#" %> </li>
-		<li> <%= link_to('Logout', destroy_user_session_path, :method => :delete) %> </li>
+		<li> <%= link_to('Logout', destroy_user_session_path) %> </li>
 	<% else %>
 		<li><%= link_to "Home", root_path %></li>
 		<li><%= link_to "Development Blog", "http://www.naturequest.tumblr.com" %></li>
