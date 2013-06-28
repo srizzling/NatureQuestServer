@@ -1,6 +1,12 @@
-<h1>Editing quest</h1>
-
+<script>
+function formSubmit() {
+	document.getElementById("edit_quest_<%= @quest.id %>").submit();
+}
+</script>
+<h1>Update Quest</h1>
+<table id="quest">
 <%= render 'form' %>
-
-<%= link_to 'Show', @quest %> |
-<%= link_to 'Back', quests_path %>
+ <tr>
+ <td onclick="formSubmit()"><%= link_to image_tag("/assets/update.png"), "#" %></td>
+ </tr>
+</table>

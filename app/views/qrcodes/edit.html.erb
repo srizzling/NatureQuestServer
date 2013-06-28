@@ -1,9 +1,17 @@
 <%- model_class = Qrcode -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human %></h1>
-</div>
+<script>
+function formSubmit() {
+	document.getElementById("edit_qrcode_<%= @qrcode.id %>").submit();
+}
+</script>
+<h1>Edit Question</h1>
 <% if @auth %>
+ <table id="qr">
 <%= render :partial => 'form' %>
+ <tr>
+ <td onclick="formSubmit()"><%= link_to image_tag("/assets/update.png"), "#" %></td>
+ </tr>
+</table>
 <% else %>
 <p>
 	You are not authorized to edit this! This QR code was created by <%=User.find(@qrcode.userid).email %>

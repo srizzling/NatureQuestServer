@@ -1,25 +1,35 @@
 <script>
-function formSubmit()
-{
-document.getElementById("new_user").submit();
+function formSubmit() {
+	document.getElementById("new_user").submit();
 }
 </script>
 <div id="login">
 <h2>Sign in</h2>
 
 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
-
-<div name=password><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
-
+ <table>
+ <tr> 
+<td> <%= f.label :email %></td>
+</tr>
+<tr>
+ <td> <%= f.email_field :email, :autofocus => true %></td>
+ </tr>
+ <tr>
+ <td><%= f.label :password %></td>
+  </tr>
+  <tr>
+  <td><%= f.password_field :password %></td>
+  </tr>
   <% if devise_mapping.rememberable? -%>
-    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+<tr>
+   <td id="checkbox"><%= check_box_tag(:remember_me) %>
+<%= label_tag(:remember_me, "Remember Me") %></td>
+   </tr>
   <% end -%>
-
-<div id="sigin"><%= f.submit 'login' %></div>
-
+<tr>
+<td onclick="formSubmit()"><%= link_to image_tag("/assets/login.png"), "#" %></td>
+</tr>
+</table>
   <% end %>
 <p>  
   <%= render "devise/shared/links" %>    

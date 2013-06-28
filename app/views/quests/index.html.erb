@@ -1,18 +1,24 @@
 <div>
  <h1>Quests</h1>
-  <table border="1">
-  <tr>
-    <th>Name</th>
-  </tr>
-
+<%- model_class = Quest -%>
+  <table id="questtable">
+    <tr>
+  <% i = 0 %>
 <% @quests.each do |quest| %>
-<% if quest.userid == current_user.id %>
-  <tr>
-    <td><%= link_to quest.name, {:controller => "qrcodes", :action => "index", :quest_id => quest.id }%></td>
-  </tr>
+  <% if quest.userid == current_user.id %>
+  <% image = "/assets/quest" << rand(10).to_s << ".png" %>
+   <td><%= link_to image_tag(image), {:controller => "qrcodes", :action => "index", :quest_id => quest.id } %>
+   <br /><%= link_to quest.name, {:controller => "qrcodes", :action => "index", :quest_id => quest.id }%></td>
+	<% i = i + 1 %>
+   <% if i % 4 == 0 %>
+   </tr><tr>
+   <% end %>
+
   <% end %>
+  
 <% end %>
-</table>
+</tr></table>
+
 
 </div>
 
